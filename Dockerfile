@@ -5,7 +5,7 @@ WORKDIR /home/gradle/src
 RUN gradle build --no-daemon -x test
 
 # 2-bosqich: Loyihani ishga tushirish (Run)
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jre-alpine
 EXPOSE 8080
 COPY --from=build /home/gradle/src/build/libs/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
